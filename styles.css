@@ -13,13 +13,16 @@ body {
     padding: 30px 0 30px 0;
 }
 
-.content {
-    background-color: inherit;
-}
-
 .header .title {
     text-align: center;
     text-transform: capitalize;
+}
+
+.content {
+    background-color: inherit;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .content .post {
@@ -32,18 +35,24 @@ body {
 }
 
 .content .post .img {
-    margin-bottom: 28px;
-    max-width: 100%;
+    margin: 0 0 28px 0;
+    width: 100%;
+    /* width 100% en vez de max-width */
 }
 
 .content .post .title {
     margin-bottom: 30px;
     text-align: center;
+    font-size: 1em;
 }
 
 .content .post .title,
 .content .post .paragraph {
     text-transform: uppercase;
+    /* La propiedad de flexbox justify-content
+    funciona hasta que el parrafo es igual o más
+    grande que el contenedor cuando pase esto utilizara text-align center*/
+    text-align: center;
 }
 
 .content .post .paragraph {
@@ -72,18 +81,15 @@ body {
 
 @media screen and (min-width: 468px){
 
-    .header {
-        background-color: red;
-    }
-
     .content {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
     }
 
     .content .post {
-        flex: 0 1 calc(100%/2 - 28px);
+        flex: 0 1 calc(100%/2 - 16px);
     }   
 
 }
@@ -96,7 +102,7 @@ body {
     }
 
     .content .post {
-        flex: 0 1 calc(100%/3 - 28px);
+        flex: 0 1 calc(100% / 3 - 16px);
     }  
 
 }
